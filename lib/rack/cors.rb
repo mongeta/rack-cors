@@ -384,7 +384,8 @@ module Rack
           h = {
             'Access-Control-Allow-Origin'     => origin_for_response_header(env[HTTP_ORIGIN]),
             'Access-Control-Allow-Methods'    => methods.collect{|m| m.to_s.upcase}.join(', '),
-            'Access-Control-Expose-Headers'   => expose.nil? ? '' : expose.join(', '),
+            # 'Access-Control-Expose-Headers'   => expose.nil? ? '' : expose.join(', '),
+            'Access-Control-Expose-Headers'   => ('Per-Page,Total,Link,ETag'),
             'Access-Control-Max-Age'          => max_age.to_s }
           h['Access-Control-Allow-Credentials'] = 'true' if credentials
           h
